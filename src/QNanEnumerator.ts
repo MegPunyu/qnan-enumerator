@@ -36,14 +36,11 @@ export default class QNanEnumerator {
 
     this.#buf.setBigUint64(0, BigInt(id), false);
 
+    // Create 64 bit NaN (IEEE-754)
     const ID_H = this.#buf.getUint32(0, false);
-    const ID_L = this.#buf.getUint32(4, false);
-
     const BIT_H = ID_H | ID_H << 12 & 0x8000_0000 | 0x7FF8_0000;
-    const BIT_L = ID_L | 0;
 
     this.#buf.setUint32(0, BIT_H, false);
-    this.#buf.setUint32(4, BIT_L, false);
 
     return this.#buf.getFloat64(0, false);
   }
@@ -62,7 +59,7 @@ export default class QNanEnumerator {
    */
   public getId(nan: typeof NaN): number {
     if (!Number.isNaN(nan)) {
-      throw new TypeError("non-NaN number provided");
+      throw new TypeError("non-NaN value provided");
     }
 
     this.#buf.setFloat64(0, nan, false);
