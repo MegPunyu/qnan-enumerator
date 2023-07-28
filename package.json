@@ -1,0 +1,34 @@
+{
+  "author": "MegPunyu",
+  "bugs": {
+    "url": "https://github.com/MegPunyu/qnan-enumerator/issues"
+  },
+  "description": "Enumerate quiet NaN values.",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
+    "eslint": "^8.25.0",
+    "typescript": "^4.8.4"
+  },
+  "homepage": "https://github.com/MegPunyu/qnan-enumerator#readme",
+  "keywords": [
+    "NaN",
+    "qNaN",
+    "quiet NaN"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "qnan-enumerator",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MegPunyu/qnan-enumerator.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "eslint src/**/*.ts"
+  },
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "version": "1.0.0"
+}
